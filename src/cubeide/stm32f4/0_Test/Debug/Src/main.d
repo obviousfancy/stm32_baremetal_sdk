@@ -1,0 +1,15 @@
+Src/main.o: ../Src/main.c \
+ /home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h \
+ /home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Include/core_cm4.h \
+ /home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Include/cmsis_version.h \
+ /home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Include/cmsis_compiler.h \
+ /home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Include/cmsis_gcc.h \
+ /home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Include/mpu_armv7.h \
+ /home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h
+/home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h:
+/home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Include/core_cm4.h:
+/home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Include/cmsis_version.h:
+/home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Include/cmsis_compiler.h:
+/home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Include/cmsis_gcc.h:
+/home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Include/mpu_armv7.h:
+/home/obviousfancy/Documents/obviousfancy/stm32bare_metal/0_Test/chipheaders/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h:
