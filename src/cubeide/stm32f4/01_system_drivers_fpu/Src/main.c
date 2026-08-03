@@ -18,6 +18,7 @@
 
 #include <stdint.h>
 #include "stm32f411xe.h"
+#include "fpu.h"
 
 #define GPIOAEN				(1U << 0)
 #define PIN5				(1U << 5)
@@ -32,6 +33,9 @@ int main(void)
 
 	GPIOA -> MODER |= (1U << 10);
 	GPIOA -> MODER &=~ (1U << 11);
+
+	/*Enable FPU*/
+	fpu_enable();
     /* Loop forever */
 	while(1){
 		GPIOA -> ODR ^= LED_PIN;

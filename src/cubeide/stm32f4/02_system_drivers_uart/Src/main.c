@@ -15,9 +15,11 @@
  *
  ******************************************************************************
  */
-
+#include <stdio.h>
 #include <stdint.h>
 #include "stm32f411xe.h"
+#include "fpu.h"
+#include "uart.h"
 
 #define GPIOAEN				(1U << 0)
 #define PIN5				(1U << 5)
@@ -26,15 +28,22 @@
 int main(void)
 {
 	/*Enable Clock acces to GPIOA*/
-	RCC -> AHB1ENR |= GPIOAEN;
+	//RCC -> AHB1ENR |= GPIOAEN;
 
 	/*Set PA5 to output mode*/
 
-	GPIOA -> MODER |= (1U << 10);
-	GPIOA -> MODER &=~ (1U << 11);
+	//GPIOA -> MODER |= (1U << 10);
+	//GPIOA -> MODER &=~ (1U << 11);
+
+	/*Enable FPU*/
+	fpu_enable();
+
+	/*Initialize debug UART*/
+	debug_uart_init();
     /* Loop forever */
 	while(1){
-		GPIOA -> ODR ^= LED_PIN;
+		//GPIOA -> ODR ^= LED_PIN;
+		printf("Hello from STM32\r\n");
 		for(int i = 0; i < 1000000; i++){}
 	}
 }

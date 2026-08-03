@@ -88,34 +88,37 @@ int main(void)
  80001d8:	b480      	push	{r7}
  80001da:	b083      	sub	sp, #12
  80001dc:	af00      	add	r7, sp, #0
+	/*Enable Clock acces to GPIOA*/
 	RCC -> AHB1ENR |= GPIOAEN;
- 80001de:	4b12      	ldr	r3, [pc, #72]	@ (8000228 <main+0x50>)
+ 80001de:	4b11      	ldr	r3, [pc, #68]	@ (8000224 <main+0x4c>)
  80001e0:	6b1b      	ldr	r3, [r3, #48]	@ 0x30
- 80001e2:	4a11      	ldr	r2, [pc, #68]	@ (8000228 <main+0x50>)
+ 80001e2:	4a10      	ldr	r2, [pc, #64]	@ (8000224 <main+0x4c>)
  80001e4:	f043 0301 	orr.w	r3, r3, #1
  80001e8:	6313      	str	r3, [r2, #48]	@ 0x30
 
+	/*Set PA5 to output mode*/
+
 	GPIOA -> MODER |= (1U << 10);
- 80001ea:	4b10      	ldr	r3, [pc, #64]	@ (800022c <main+0x54>)
+ 80001ea:	4b0f      	ldr	r3, [pc, #60]	@ (8000228 <main+0x50>)
  80001ec:	681b      	ldr	r3, [r3, #0]
- 80001ee:	4a0f      	ldr	r2, [pc, #60]	@ (800022c <main+0x54>)
+ 80001ee:	4a0e      	ldr	r2, [pc, #56]	@ (8000228 <main+0x50>)
  80001f0:	f443 6380 	orr.w	r3, r3, #1024	@ 0x400
  80001f4:	6013      	str	r3, [r2, #0]
 	GPIOA -> MODER &=~ (1U << 11);
- 80001f6:	4b0d      	ldr	r3, [pc, #52]	@ (800022c <main+0x54>)
+ 80001f6:	4b0c      	ldr	r3, [pc, #48]	@ (8000228 <main+0x50>)
  80001f8:	681b      	ldr	r3, [r3, #0]
- 80001fa:	4a0c      	ldr	r2, [pc, #48]	@ (800022c <main+0x54>)
+ 80001fa:	4a0b      	ldr	r2, [pc, #44]	@ (8000228 <main+0x50>)
  80001fc:	f423 6300 	bic.w	r3, r3, #2048	@ 0x800
  8000200:	6013      	str	r3, [r2, #0]
     /* Loop forever */
 	while(1){
 		GPIOA -> ODR ^= LED_PIN;
- 8000202:	4b0a      	ldr	r3, [pc, #40]	@ (800022c <main+0x54>)
+ 8000202:	4b09      	ldr	r3, [pc, #36]	@ (8000228 <main+0x50>)
  8000204:	695b      	ldr	r3, [r3, #20]
- 8000206:	4a09      	ldr	r2, [pc, #36]	@ (800022c <main+0x54>)
+ 8000206:	4a08      	ldr	r2, [pc, #32]	@ (8000228 <main+0x50>)
  8000208:	f083 0320 	eor.w	r3, r3, #32
  800020c:	6153      	str	r3, [r2, #20]
-		for(int i = 0; i < 10000; i++);
+		for(int i = 0; i < 1000000; i++){}
  800020e:	2300      	movs	r3, #0
  8000210:	607b      	str	r3, [r7, #4]
  8000212:	e002      	b.n	800021a <main+0x42>
@@ -123,14 +126,14 @@ int main(void)
  8000216:	3301      	adds	r3, #1
  8000218:	607b      	str	r3, [r7, #4]
  800021a:	687b      	ldr	r3, [r7, #4]
- 800021c:	f242 720f 	movw	r2, #9999	@ 0x270f
- 8000220:	4293      	cmp	r3, r2
- 8000222:	ddf7      	ble.n	8000214 <main+0x3c>
+ 800021c:	4a03      	ldr	r2, [pc, #12]	@ (800022c <main+0x54>)
+ 800021e:	4293      	cmp	r3, r2
+ 8000220:	ddf8      	ble.n	8000214 <main+0x3c>
 		GPIOA -> ODR ^= LED_PIN;
- 8000224:	e7ed      	b.n	8000202 <main+0x2a>
- 8000226:	bf00      	nop
- 8000228:	40023800 	.word	0x40023800
- 800022c:	40020000 	.word	0x40020000
+ 8000222:	e7ee      	b.n	8000202 <main+0x2a>
+ 8000224:	40023800 	.word	0x40023800
+ 8000228:	40020000 	.word	0x40020000
+ 800022c:	000f423f 	.word	0x000f423f
 
 08000230 <Reset_Handler>:
 
